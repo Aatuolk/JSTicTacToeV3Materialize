@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+}
+h1 {
+  font-size: 50px;
+}
+p {
+  font-size: 15px;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+td {
+  border: 1px solid black;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 30px;
+  padding: 6px;
+  width: 60px;
+  height: 60px;
+}
+#progressBar {
+  height: 30px;
+  border: 1px solid black;
+  background-color: grey;
+}
+
+#innerBar {
+  text-align: center;
+  width: 0%;
+  line-height: 30px;
+  background-color: salmon;
+}
