@@ -5,19 +5,9 @@ var elem = document.getElementById("innerBar");
 let width = 0;
 let id;
 
-function createTable() {
-  const table = document.getElementById("board");
-  for (let i = 0; i < 5; i++) {
-    let row = table.insertRow();
+const col = document.querySelectorAll(".col");
 
-    for (let j = 0; j < 5; j++) {
-      row.insertCell();
-    }
-  }
-  oncclick(table);
-}
-
-function populateCell(tableCell, table) {
+function populateCell(tableCell) {
   if (counter % 2 === 0) {
     if (tableCell.innerHTML === "") {
       tableCell.innerHTML = "X";
@@ -37,25 +27,22 @@ function populateCell(tableCell, table) {
   }
 }
 
-function oncclick(table) {
-  for (var i = 0; i < table.rows.length; i++) {
-    for (var j = 0; j < table.rows[i].cells.length; j++) {
-      table.rows[i].cells[j].onclick = function () {
-        populateCell(this, table);
-        clearBarWidth();
-        moveBar();
-        if (counter > 8) {
-          handleResultValidation();
-        }
-      };
+function oncclick() {
+  for (var j = 0; j < col.length; j++) {
+    col[j].addEventListener("click", function () {
+      populateCell(this, col[j]);
+      clearBarWidth();
+      moveBar();
+    });
+    if (counter > 8) {
+      handleResultValidation();
     }
   }
 }
-createTable();
+oncclick();
 
 function clearTable() {
-  document.getElementById("board").innerHTML = "";
-  createTable();
+  document.getElementById("boardi").innerHTML = "";
 }
 
 function handleResultValidation() {
